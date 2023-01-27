@@ -1,0 +1,62 @@
+produtos{
+	id, primary varchar20				# IDENTIFICAÇÃO PRODUTO
+	nomeProduto,  not null unique varchar20		# NOME INTERNO CORPORATIVO
+	nomeFantasia,	not null unique varchar23	# NOME SOCIAL
+	descricao,	not null, text			# DESCRIÇÃO
+	promo,		varchar12			# CODIGO DE PROMOÇÃO
+	custo,		float				# VALOR DE ENCARGOS DE PRODUÇÃO
+	valor,		float				# VALOR  DE COMERCIO
+	imposto,	decimal				# TOTAL DE IMPOSTOS
+	taxa,		float				# VALOR TAXA OU ENCARGOS
+	g_id,		varchar12			# GRUPO DO PRODUTO
+	p_bl,		int				# IDENTIFICADOR DE VISIBILIDADE
+	}
+
+estoque{
+	produtoID, primary not null
+	serial,	datetime
+	lote,	varchar12
+	quantidade, int not null
+	validade, datetime,
+	obs, text
+	tipoEstoque, int	
+	}
+	
+
+usuario{
+	codigo, primary int
+	login,	varchar(23)
+	senha, char(16)
+	perfil, int
+	}
+
+pessoa{
+	id, int
+	nome, varchar45
+	fisica, char(16)
+	telefone, char(16)
+	celular, char(16)
+	email, varchar(55)
+	aniversario, date
+	}
+
+logradouro{
+	usuario, int
+	cep, char16
+	rua, varchar50
+	numero, int
+	bloco, varchar5
+	casa, varchar5
+	bairro, varchar50
+	cidade, varchar45
+	estado, varchar2
+	descricao_endereco, varchar60
+comanda{
+	pedidoID, primary int
+	carrinhoID, int
+	clienteID, int
+	vendedorID, int
+	dataHora, datetime
+	}
+
+	
