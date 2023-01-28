@@ -12,7 +12,7 @@ produtos{
 	p_bl,		int				# IDENTIFICADOR DE VISIBILIDADE
 	}
 
-estoque{
+dispensa{
 	produtoID, primary not null
 	serial,	datetime
 	lote,	varchar12
@@ -49,8 +49,10 @@ logradouro{
 	casa, varchar5
 	bairro, varchar50
 	cidade, varchar45
-	estado, varchar2
+	estado, 	char2
 	descricao_endereco, varchar60
+	criadoem, date
+
 comanda{
 	pedidoID, primary int
 	carrinhoID, int
@@ -59,4 +61,68 @@ comanda{
 	dataHora, datetime
 	}
 
+carrinho{
+	id, primary int
+	carrinho, int
+	produtoID, int
+	qtd,	int
+	observacao, varchar(18)
+	status, int
+	dataHora, datetime
+	}
+
+conferencia{
+	id, primary int
+	comanda, int
+	totalBruto, float
+	totalDesconto, float
+	toalAPagar, float
+	totalTaxa, float
+	bandeira, varchar12
+	valorRecebido, float
+	clienteID, int
+	funcionarioID, int
+	status, int
+	dataHora, datetime
+	}
+
+notafiscal{
+	id, primary int
+	idfiscal, int
+	conferencia, int
+	tributos, float
+	encargos, float
+	descontos, float
+	identificador, char16
+	identificapj, varchar14
+	dataHora, datetime
+	}
+
+
+rota{
+	id, primary int
+	rotaID, int
+	notafiscalID, int
+	entregadorID, int
+	taxa, float
+	clienteLocal, int
+	dataHora, datetime
+	}
+
+dados{
+	nomefiscal, varchar45
+	nomesocial, varchar60
+	cnpj,	char14
+	telefonea, char11
+	telefoneb, char11
+	telefonec, char11
+	cep, 	char8
+	rua, varchar50
+	numero, int,
+	bairro, varchar50
+	cidade, varchar45
+	estado, char2
+	fundacao, datetime
+	historia, text
 	
+	}
